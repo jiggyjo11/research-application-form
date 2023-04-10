@@ -6,8 +6,9 @@ import { airtablePostEvent } from "../services/airtable";
 import Image from "next/image";
 import Head from "next/head";
 import Start from "../components/form/start";
-import StepOne from "../components/form/form-step-1";
 import StepTwo from "../components/form/form-step-2";
+import StepThree from "../components/form/form-step-3";
+import StepFour from "../components/form/form-step-4";
 
 import { data } from "autoprefixer";
 
@@ -159,16 +160,15 @@ function SubmitProject() {
           </>
         ) : (
           <>
-
             <form onSubmit={handleSubmit(onSubmit)}>
               {page === 1 && (
                 <>
-                  <Start nextPage={nextPage}/>
+                  <Start nextPage={nextPage} />
                 </>
               )}
               {page === 2 && (
                 <>
-                  <StepOne
+                  <StepTwo
                     register={register}
                     errors={errors}
                     createDataroom={createDataroom}
@@ -179,10 +179,9 @@ function SubmitProject() {
                 </>
               )}
 
-    
               {page === 3 && (
                 <>
-                  <StepTwo
+                  <StepThree
                     prevPage={prevPage}
                     register={register}
                     errors={errors}
@@ -194,7 +193,19 @@ function SubmitProject() {
                 </>
               )}
 
-
+              {page === 4 && (
+                <>
+                  <StepFour
+                    prevPage={prevPage}
+                    register={register}
+                    errors={errors}
+                    createDataroom={createDataroom}
+                    dataroom={dataroom}
+                    dataroomURL={dataroomURL}
+                    nextPage={nextPage}
+                  />
+                </>
+              )}
             </form>
           </>
         )}
