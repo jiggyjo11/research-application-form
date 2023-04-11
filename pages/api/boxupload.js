@@ -1,15 +1,11 @@
 import BoxSDK from "box-node-sdk";
 import fs from "fs";
+import path from "path";
+import dotenv from "dotenv";
 
-// // Configure the SDK with your developer token (Quick Setup)
-// const sdk = new BoxSDK({
-//   clientID: process.env.BoxClientID
-//   clientSecret: process.env.BoxClientSecret,
-// });
+dotenv.config();
 
-// const boxclient = sdk.getBasicClient(process.env.BOX_DEVELOPER_TOKEN); //60 mins sandbox
-
-const credentials = JSON.parse(fs.readFileSync('box_config.json'));
+const credentials = JSON.parse(fs.readFileSync(path.join(process.cwd(), "files", "box_config.json")));
 
 const sdk = new BoxSDK({
   clientID: credentials.boxAppSettings.clientID,
@@ -21,21 +17,17 @@ const sdk = new BoxSDK({
   }
 });
 
-var boxclient = sdk.getAppAuthClient('enterprise', '939429920');
-
-
-
+const boxclient = sdk.getAppAuthClient('enterprise', '939429920');
 
 async function boxCreateFolder(parentId, folderName) {
   // Create a new folder in parent folder specified with parentid
   try {
     const folder = await boxclient.folders.create(
       parentId,
-      folderName,
-      (err, folder) => {
-        console.log(`New folder "${folderName}" created with ID: ${folder.id}`);
-      }
+      folderName
     );
+
+    console.log(`New folder "${folderName}" created with ID: ${folder.id}`);
     
     return folder;
   } catch (err) {
@@ -43,8 +35,6 @@ async function boxCreateFolder(parentId, folderName) {
   }
 }
 
-
-// api route
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const project_researcher_name = req.body.project_researcher_name;
