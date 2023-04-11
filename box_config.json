@@ -1,0 +1,12 @@
+{
+  "boxAppSettings": {
+    "clientID": "clcrxkc50q8di9z3hjsp34n4yz3qirnt",
+    "clientSecret": "jE3HGMbog75ncro0OgRnXJFS8zFctLqK",
+    "appAuth": {
+      "publicKeyID": "keewebyo",
+      "privateKey": "-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFDjBABgkqhkiG9w0BBQ0wMzAbBgkqhkiG9w0BBQwwDgQIcDNCoO4D1JICAggA\nMBQGCCqGSIb3DQMHBAihhr33bAYtWwSCBMiBOZR4dbNwQbA0PsrC55z3rJVM1R0z\neLUqPzMfu8tGbRwPfj0nAUkC/ZARJoI4qKcxn2w88nEA+p075G9PUIFar3kttldL\no0zQjLc+vWwTi/S3G+BEqJa8+bhsOhjv2yn60Bu0lX1IAmkxhPABsTSphRYyDfsU\nbmZl6TD9cGPgBU7HVMXsMvgnwBZkZm/M3rp2jCWEjHkYsjCwBiTaljL7/scBLOVy\nYWda8sjsQqPhnjvHs0c/PJuodcvQwplrejwpZa0tbtdBE8HfAAL4jizh1lpT06h7\noh+1s+zWCghDwr+quTrTtaVJKwk5F33q/925GjWVgjeBXXf1ugpG28KzCOLy7mvF\nbz4DviJXoRYUL/qtqT67GDhyqzgcj0jqAch518rOlRi4HJ2+pRfEhIo5O0hsbPV0\nZsTPUZxyZ4Dt1ERTMHE9kpz01KYVVEYd8F90jmgD4fTsjIEL24bIUmQ+BgvE2ow4\nqxFkKSTrIsVRPjkbXu6X1POL5s9LgxwLEW8j45YdsCdlOLv+NrUdFlqmLDzgL7GI\nhmcz2Xhdrq60tlqDi1qSpnSIrrnUTlBqC/Lq9Gwgyr9CSvfFA487cJeD1NOsyzIc\nnkrwrNkgxxF4lAa5sQiH8n6cHD53fiW6YBkawE2UWdr7y5MaIzYojeYXssK6/o5S\nRDgInImpsupKggE2qv16IoUpQ6oRdpDS/2CqwLyZ2zPdJpVcwCw7WhViJaATAupT\ndJg+LOP7KqdEU8MKyKg4NCS/656GVyqQ9z2IGrAkRD9ARUCvId8eHBN5Ok345EMK\naBr03fHoIdwIDhPkHlv6uRL2QINbscGEb9n4X38tXCrHahjqgnWmKMF4ULd8NMbH\nMCuNBT/OrHUfxRd7pJyQsX98PClo42Cf5BQHulQz/Ts5mNUGRNmIA7ZplqKRBPYK\n2MsBqvvsuxvwsdw7qi289O4I3YTKxRi4UkjvLAQGSDXc3Mvs/j6+4isxuokeL/i3\nGu5QILm8xTPTNGSEWQdEj/c2QqE/AmVz30IKf5j6sc6frJmufJG4Li9hsS43cTR/\nECBJyrHQ5+mDcH6kSy173QPqzbKeoHDc3kFYrUbZI8rSwRmxihp8Ew/mzHZflqU7\nLDpNl7fWhMfbaD8dCATCAXYXgZQ08X49jhrgeRltQHnG1GkQMuxXpSaXCJweVzMb\n1tWDFJo06MKjoVqra5Nh0lYzzkgrKNNf9J3lx6P9X/qDx10ijgbLLAqvMPu7bI0+\nHRFxH6zeI/oRIeQylR5JB3N0locsmyf6mmJ/BpLF/suCQaWSEI2/Vz76D/1gCmY4\ngrkHnrSyJcjXSJ53SyLikJA0vderIXaH6ZscHqTHKrFdlsKw+GyicxC5iwWlvoyN\nfQPYHVW9yKBD4PF5N/38A/SnNAtA74qybWHhAG8St3N3UEi9XV/mlrAzA86QM2MD\nlALg2OTwj1Ig2XaBSNHM8s1kWjhLeD0h+gxZnwPRkxL+O9n0Z25YDiSSxU7whbiy\n/kM3A+uX6KNy2hFxgQC0UwEeitrNzOOmFaR1BlGO7GZOEI0JShlK5tZ9ALwa3AKA\nyUv3x4kZDXqflqaOQLWZy2Vr1Chdm3MFYaqqgloy3nJbArCo91crM42lXaJo4X1A\ndaA=\n-----END ENCRYPTED PRIVATE KEY-----\n",
+      "passphrase": "c701ec9b4574455621c36bb94a13d4b0"
+    }
+  },
+  "enterpriseID": "939429920"
+}

@@ -9,53 +9,10 @@ import Start from "../components/form/start";
 import StepTwo from "../components/form/form-step-2";
 import StepThree from "../components/form/form-step-3";
 import StepFour from "../components/form/form-step-4";
-
-import { data } from "autoprefixer";
+import yupSchema from "../data/yupSchema";
 
 function SubmitProject() {
-  const schema = yup
-    .object({
-      project_title: yup.string().required("Please enter a project title"),
-      project_description: yup
-        .string()
-        .required("Please enter a project description"),
-      project_research_topic: yup
-        .string()
-        .required("Please select a research industry based on NIH category"),
-      project_research_industry: yup
-        .string()
-        .required("Please pick an industry from the dropdown"),
-      project_icd_codes: yup
-        .string()
-        .required("Please submit one or more comma separated ICD codes"),
-      project_datapackage: yup
-        .string()
-        .required("Please select a project datapackage"),
-      project_patent_status: yup
-        .string()
-        .required("Please select a patent status"),
-      project_clinical_stage: yup
-        .string()
-        .required("Please select a clinical stage"),
-      research_country_code: yup
-        .string()
-        .required("Please enter a research location country code"),
-      research_institution_name: yup
-        .string()
-        .required("Please enter a research organization/institution"),
-      project_institution_link: yup
-        .string()
-        .url(
-          "Please enter a valid URL for the research organization/institution"
-        ),
-      researcher_first_name: yup
-        .string()
-        .required("Please enter your first name"),
-      researcher_last_name: yup
-        .string()
-        .required("Please enter your last name"),
-    })
-    .required();
+  const schema = yupSchema;
 
   const {
     register,
@@ -65,6 +22,7 @@ function SubmitProject() {
     formState: { errors, isSubmitting, control },
   } = useForm({ resolver: yupResolver(schema) });
 
+  const [accessToken, setAccessToken] = useState(null);
   const [dataroom, setDataroom] = useState("Create secure Dataroom");
   const [dataroomURL, setDataroomUrl] = useState(null);
   const [errorToastMessage, setErrorToastMessage] = useState();
@@ -72,16 +30,30 @@ function SubmitProject() {
   const [page, setPage] = useState(1);
   const project_title = watch("project_title");
 
-  useEffect(() => {
-    if (project_title) {
-      console.log("Field 1 is filled out:", project_title);
-    }
-  }, [project_title]);
+  // useEffect(() => {
+  //   if (project_title) {
+  //     console.log("Field 1 is filled out:", project_title);
+  //   }
+  // }, [project_title]);
+
+  // useEffect(() => {
+  //   const fetchAccessToken = async () => {
+  //     try {
+  //       const response = await fetch("/api/boxupload");
+  //       const data = await response.json();
+  //       setAccessToken(data.accessToken);
+  //     } catch (error) {
+  //       console.error("Error fetching access token:", error);
+  //     }
+  //   };
+
+  //   fetchAccessToken();
+  // }, []);
 
   const onHideToast = () =>
     setTimeout(() => {
       setErrorToastMessage(undefined);
-    }, 5000);
+    }, 2000);
 
   async function createDataroom() {
     const data = {
@@ -160,6 +132,7 @@ function SubmitProject() {
           </>
         ) : (
           <>
+
             <form onSubmit={handleSubmit(onSubmit)}>
               {page === 1 && (
                 <>

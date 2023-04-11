@@ -1,26 +1,28 @@
 import BoxSDK from "box-node-sdk";
+import fs from "fs";
 
+// // Configure the SDK with your developer token (Quick Setup)
+// const sdk = new BoxSDK({
+//   clientID: process.env.BoxClientID
+//   clientSecret: process.env.BoxClientSecret,
+// });
 
-// Configure the SDK with your developer token
+// const boxclient = sdk.getBasicClient(process.env.BOX_DEVELOPER_TOKEN); //60 mins sandbox
+
+const credentials = JSON.parse(fs.readFileSync('box_config.json'));
+
 const sdk = new BoxSDK({
-  clientID: process.env.BoxClientID,
-  clientSecret: process.env.BoxClientSecret,
+  clientID: credentials.boxAppSettings.clientID,
+  clientSecret: credentials.boxAppSettings.clientSecret,
+  appAuth: {
+    keyID: credentials.boxAppSettings.appAuth.publicKeyID,
+    privateKey: credentials.boxAppSettings.appAuth.privateKey,
+    passphrase: credentials.boxAppSettings.appAuth.passphrase
+  }
 });
 
-const boxclient = sdk.getBasicClient(process.env.BOX_DEVELOPER_TOKEN); //60 mins sandbox
+var boxclient = sdk.getAppAuthClient('enterprise', '939429920');
 
-// Set up a timer to refresh the token before it expires
-const refreshTimer = setInterval(() => {
-    client.refresh((err, accessTokenInfo) => {
-      if (err) {
-        console.error('Error refreshing access token:', err);
-        clearInterval(refreshTimer);
-        return;
-      }
-  
-      console.log('Access token refreshed:', accessTokenInfo.accessToken);
-    });
-  }, 1000 * 60 * 30); // Refresh the token every 30 minutes
 
 
 
@@ -42,17 +44,13 @@ async function boxCreateFolder(parentId, folderName) {
 }
 
 
-
-
-
 // api route
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     const project_researcher_name = req.body.project_researcher_name;
     const project_title = req.body.project_title;
     try {
-      const folder = await boxCreateFolder("201284760327", project_title);
+      const folder = await boxCreateFolder("202886318459", project_title); // box app has own file system and you need to share this folder with yourself to see it
       res.status(200).json({ message: folder.id });
     } catch (error) {
       res.status(400).json({ message: error.message });
